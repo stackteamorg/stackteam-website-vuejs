@@ -1,3 +1,16 @@
 {
-    "welcome": "خوش آمدید"
+  "welcome": "خوش آمدید",
+  "layouts": {
+    "landing": {
+      "header": {
+        "login": "ورود",
+        "collabration": "همکاری با ما",
+        "home": "خانه",
+        "about": "درباره ما",
+        "services": "خدمات",
+        "blog": "بلاگ",
+        "collabration_process": "فرآیند همکاری"
+      }
+    }
+  }
 }

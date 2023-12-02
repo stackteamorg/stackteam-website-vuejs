@@ -1,13 +1,15 @@
+import { computed } from "vue";
+
 const plugin = defineNuxtPlugin({
   setup() {
     const nuxtApp = useNuxtApp();
-    nuxtApp.provide("dir", nuxtApp.$i18n.locale.value === "en" ? "ltr" : "rtl");
-  },
-  hooks: {
-    "i18n:localeSwitched": ({ newLocale }) => {
-      const nuxtApp = useNuxtApp();
-      nuxtApp.provide("dir", newLocale === "en" ? "ltr" : "rtl");
-    },
+    const dir = computed(() =>
+      nuxtApp.$i18n.locale.value === "en" ? "ltr" : "rtl"
+    );
+
+    useHead({
+      htmlAttrs: { dir: dir, lang: nuxtApp.$i18n.locale },
+    });
   },
 });
 

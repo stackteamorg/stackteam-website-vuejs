@@ -1,5 +1,9 @@
 <template>
-  <LayoutsLandingHeader />
-  <slot></slot>
+  <LayoutsLandingHeader>
+    Easy
+  </LayoutsLandingHeader>
+  <main class="pt-32">
+    <slot></slot>
+  </main>
   <LayoutsLandingFooter />
 </template>

@@ -1,0 +1,16 @@
+{
+  "welcome": "الخوش آمدید",
+  "layouts": {
+    "landing": {
+      "header": {
+        "login": "الورود",
+        "collabration": "الهمکاری با ما",
+        "home": "بیت",
+        "about": "الدرباره",
+        "services": "الخدمات",
+        "blog": "البلاگ",
+        "collabration_process": "الفرآیند همکاری"
+      }
+    }
+  }
+}

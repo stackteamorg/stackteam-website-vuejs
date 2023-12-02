@@ -17,5 +17,8 @@
     "nuxt-primevue": "^0.2.1",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@heroicons/vue": "^2.0.18"
   }
 }

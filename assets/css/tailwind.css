@@ -1,0 +1,38 @@
+@layer tailwind-base, primevue, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+
+  /* @TODO: load font conditional */
+  @layer base {
+    @font-face {
+      font-family: somar;
+      src: url("~/assets/fonts/somar-sans.ttf");
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: shabnam;
+      src: url("~/assets/fonts/shabnam.ttf");
+      font-display: swap;
+    }
+
+    html[lang="ar"] {
+      font-family: somar, sans-serif;
+    }
+
+    html[lang="fa"] {
+      font-family: shabnam, sans-serif;
+    }
+
+    *:focus,
+    *:focus-visible {
+      @apply outline-none;
+    }
+  }
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}

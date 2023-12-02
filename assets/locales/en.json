@@ -1,3 +1,16 @@
 {
-    "welcome": "Welcome"
+  "welcome": "Welcome",
+  "layouts": {
+    "landing": {
+      "header": {
+        "login": "Login",
+        "collabration": "Collabration",
+        "home": "Home",
+        "about": "About Us",
+        "services": "Services",
+        "blog": "Blog",
+        "collabration_process": "Collabration Process"
+      }
+    }
+  }
 }
