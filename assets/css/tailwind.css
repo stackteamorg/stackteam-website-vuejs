@@ -17,6 +17,10 @@
       font-display: swap;
     }
 
+    html {
+      @apply text-typo-dark;
+    }
+
     html[lang="ar"] {
       font-family: somar, sans-serif;
     }
@@ -35,4 +39,13 @@
 @layer tailwind-utilities {
   @tailwind components;
   @tailwind utilities;
+
+  @layer utilities {
+    .container-app {
+      @apply max-w-screen-2xl mx-auto;
+    }
+    .container-padding {
+      @apply px-6;
+    }
+  }
 }
