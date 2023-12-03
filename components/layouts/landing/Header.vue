@@ -27,11 +27,12 @@ watch(lang, () => {});
 <template>
   <div class="fixed top-0 left-0 right-0 z-20 bg-white/80 backdrop-blur-sm">
     <div
-      class="bg-black text-center text-white text-xs transition-all overflow-hidden"
+      class="bg-secondary text-center text-white text-xs transition-all overflow-hidden"
       :class="collapseBanner ? 'py-0 h-0' : 'py-3'">
       <slot></slot>
     </div>
-    <div class="mx-auto max-w-screen-2xl h-20 flex items-stretch justify-between px-4">
+    <div
+      class="container-app container-padding h-20 flex items-stretch justify-between">
       <div class="flex h-full items-center">
         <img
           :width="620"
