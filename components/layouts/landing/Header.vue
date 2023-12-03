@@ -31,25 +31,25 @@ onUnmounted(() => {
 
 <template>
   <div
-    class="fixed top-0 left-0 right-0 z-20 bg-white/80 backdrop-blur"
+    class="fixed left-0 right-0 top-0 z-20 bg-white/80 backdrop-blur"
     :class="{ 'shadow-md shadow-gray-100': collapseBanner }">
     <div
-      class="bg-secondary text-center text-white text-xs transition-all overflow-hidden"
-      :class="collapseBanner ? 'py-0 h-0 px-0' : 'py-3 px-4'"
+      class="overflow-hidden bg-secondary text-center text-xs text-white transition-all"
+      :class="collapseBanner ? 'h-0 px-0 py-0' : 'px-4 py-3'"
       v-html="data?.hero.text"></div>
     <div
-      class="container-app container-padding h-20 flex items-stretch justify-between">
+      class="container-app container-padding flex h-20 items-stretch justify-between">
       <div class="flex h-full items-center">
         <img
           :width="620"
           :height="620"
           src="assets/images/icon.png"
           alt="logo"
-          class="h-16 w-16 pt-[0.371rem] object-contain" />
+          class="h-16 w-16 object-contain pt-[0.371rem]" />
         <LayoutsLandingLanguageSelect />
       </div>
 
-      <div class="hidden lg:flex h-full items-center gap-6 pt-0.5">
+      <div class="hidden h-full items-center gap-6 pt-0.5 lg:flex">
         <NuxtLink active-class="text-primary" :to="localePath('/')">
           {{ $t("layouts.landing.header.home") }}
         </NuxtLink>
@@ -67,7 +67,7 @@ onUnmounted(() => {
         </NuxtLink>
       </div>
 
-      <div class="hidden lg:flex h-full items-center gap-1">
+      <div class="hidden h-full items-center gap-1 lg:flex">
         <Button
           class="block"
           size="small"
@@ -81,7 +81,7 @@ onUnmounted(() => {
       </div>
 
       <button @click="ui.isMenuOpen = true" class="block lg:hidden">
-        <Bars3Icon class="w-8 h-8" />
+        <Bars3Icon class="h-8 w-8" />
       </button>
     </div>
   </div>

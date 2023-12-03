@@ -5,7 +5,7 @@ definePageMeta({
 </script>
 
 <template>
-  <div class="space-y-10 max-w-screen-2xl mx-auto px-4">
+  <div class="mx-auto max-w-screen-2xl space-y-10 px-4">
     <p>test</p>
     <p>test</p>
     <p>test</p>
