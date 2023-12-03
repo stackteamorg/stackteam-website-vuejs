@@ -7,10 +7,11 @@ definePageMeta({
   layout: "landing",
 });
 
-const { data } = useFetch<IMainResult>(
-  "http://console.stackteam.org/api/content/wellcome",
-  { method: "POST", params: { lang: locale } }
-);
+const { data } = useData<IMainResult>("/content/wellcome", {
+  key: "test",
+  method: "POST",
+  params: { lang: locale.value },
+});
 </script>
 
 <template>
@@ -30,7 +31,6 @@ const { data } = useFetch<IMainResult>(
       <p
         class="text-center max-w-md lg:max-w-lg mx-auto"
         v-html="data?.hero.text"></p>
-
       <form
         autocomplete="off"
         class="w-full max-w-md mx-auto flex items-stretch rounded-md p-1 border border-solid border-gray-200 bg-white/50 backdrop-blur-sm">

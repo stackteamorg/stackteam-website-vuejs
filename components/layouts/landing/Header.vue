@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { Bars3Icon } from "@heroicons/vue/24/solid";
 
+const ui = useUI();
 const { locale } = useI18n();
 const localePath = useLocalePath();
 
-const { data } = useFetch<IMainResult>(
-  "http://console.stackteam.org/api/content/wellcome",
-  { method: "POST", params: { lang: locale } }
-);
+const { data } = useData<IMainResult>("/content/wellcome", {
+  key: "test",
+  method: "POST",
+  params: { lang: locale.value },
+});
 
 const collapseBanner = ref(process.server ? false : window.scrollY > 20);
 
@@ -48,19 +50,19 @@ onUnmounted(() => {
       </div>
 
       <div class="hidden lg:flex h-full items-center gap-6 pt-0.5">
-        <NuxtLink :to="localePath('/')">
+        <NuxtLink active-class="text-primary" :to="localePath('/')">
           {{ $t("layouts.landing.header.home") }}
         </NuxtLink>
-        <NuxtLink :to="localePath('/')">
+        <NuxtLink active-class="text-primary" :to="localePath('/services')">
           {{ $t("layouts.landing.header.services") }}
         </NuxtLink>
-        <NuxtLink :to="localePath('/blog')">
+        <NuxtLink active-class="text-primary" :to="localePath('/blog')">
           {{ $t("layouts.landing.header.blog") }}
         </NuxtLink>
-        <NuxtLink :to="localePath('/blog')">
+        <NuxtLink active-class="text-primary" :to="localePath('/collabrate')">
           {{ $t("layouts.landing.header.collabration_process") }}
         </NuxtLink>
-        <NuxtLink :to="localePath('/')">
+        <NuxtLink active-class="text-primary" :to="localePath('/about')">
           {{ $t("layouts.landing.header.about") }}
         </NuxtLink>
       </div>
@@ -78,7 +80,7 @@ onUnmounted(() => {
           severity="primary" />
       </div>
 
-      <button>
+      <button @click="ui.isMenuOpen = true" class="block lg:hidden">
         <Bars3Icon class="w-8 h-8" />
       </button>
     </div>
