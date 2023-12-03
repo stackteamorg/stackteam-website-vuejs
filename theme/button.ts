@@ -11,8 +11,8 @@ const variants = {
   primary: {
     root: {
       default:
-        "border border-solid rounded-md text-gray-100 transition-colors duration-200",
-      idle: "bg-[#111013] hover:bg-orange-600 border-[#111013] hover:border-orange-600",
+        "border border-solid rounded-md text-white transition-colors duration-200",
+      idle: "bg-secondary hover:bg-primary border-secondary hover:border-primary",
       loading: "bg-gray-400 border-gray-400 text-white animate-pulse",
     },
   },
@@ -20,7 +20,7 @@ const variants = {
     root: {
       default:
         "rounded-md transition-colors duration-200 border border-solid",
-      idle: "bg-transparent border-gray-400 hover:bg-[#111013] hover:border-[#111013] text-gray-600 hover:text-gray-100",
+      idle: "bg-transparent border-secondary hover:bg-secondary text-typo-dark hover:text-white",
       loading: "border-gray-300 text-gray-500 animate-pulse",
     },
   },
