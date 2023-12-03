@@ -4,10 +4,23 @@ export default {
     "./pages/**/*.{vue,ts}",
     "./layouts/**/*.{vue,ts}",
     "./components/**/*.{vue,ts}",
-    "./theme/**/*.ts"
+    "./theme/**/*.ts",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: "#ff8565",
+        },
+        secondary: {
+          DEFAULT: "#111013",
+        },
+        typo: {
+          dark: "#111013",
+          DEFAULT: "#5c728e",
+        },
+      },
+    },
   },
   plugins: [],
 };
