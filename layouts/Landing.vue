@@ -1,7 +1,5 @@
 <template>
-  <LayoutsLandingHeader>
-    Easy
-  </LayoutsLandingHeader>
+  <LayoutsLandingHeader />
   <main class="pt-32">
     <slot></slot>
   </main>
