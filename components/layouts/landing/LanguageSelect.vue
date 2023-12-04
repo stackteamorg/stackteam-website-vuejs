@@ -16,7 +16,7 @@ const languages = new Map([
     class="group relative"
     @mouseenter="show = true"
     @mouseleave="show = false">
-    <Button @click="show = true" severity="outlined">
+    <Button size="small" @click="show = true" severity="outlined">
       <div class="flex items-center gap-1">
         <ChevronDownIcon class="h-4 w-4" />
         <span class="text-sm">{{ languages.get($i18n.locale) }}</span>
