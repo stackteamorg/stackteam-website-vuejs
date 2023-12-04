@@ -39,13 +39,13 @@ onUnmounted(() => {
       v-html="data?.hero.text"></div>
     <div
       class="container-app container-padding flex h-20 items-stretch justify-between">
-      <div class="flex h-full items-center">
+      <div class="flex h-full items-center gap-2">
         <img
           :width="620"
           :height="620"
           src="assets/images/icon.png"
           alt="logo"
-          class="h-16 w-16 object-contain pt-[0.371rem]" />
+          class="h-12 w-12 object-contain" />
         <LayoutsLandingLanguageSelect />
       </div>
 
