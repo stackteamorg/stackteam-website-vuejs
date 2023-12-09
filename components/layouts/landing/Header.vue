@@ -6,7 +6,7 @@ const { locale } = useI18n();
 const localePath = useLocalePath();
 
 const { data } = useData<IMainResult>("/content/wellcome", {
-  key: "test",
+  key: keys.MAIN_PARAMS,
   method: "POST",
   params: { lang: locale.value },
 });
@@ -31,10 +31,12 @@ onUnmounted(() => {
 
 <template>
   <div
-    class="fixed left-0 right-0 top-0 z-20 bg-white/80 backdrop-blur"
-    :class="{ 'shadow-md shadow-gray-100': collapseBanner }">
+    class="fixed left-0 right-0 top-0 z-20"
+    :class="{
+      'bg-white/80 shadow-md shadow-gray-100 backdrop-blur': collapseBanner,
+    }">
     <div
-      class="overflow-hidden bg-secondary text-center text-xs text-white transition-all"
+      class="overflow-hidden truncate bg-secondary text-center text-xs text-white transition-all"
       :class="collapseBanner ? 'h-0 px-0 py-0' : 'px-4 py-3'"
       v-html="data?.hero.text"></div>
     <div

@@ -22,7 +22,7 @@ const icons = new Map([
 ]);
 
 const { data } = useData<IMainResult>("/content/wellcome", {
-  key: "test",
+  key: keys.MAIN_PARAMS,
   method: "POST",
   params: { lang: locale.value },
 });
@@ -48,7 +48,7 @@ const { data } = useData<IMainResult>("/content/wellcome", {
       <form
         autocomplete="off"
         class="mx-auto flex w-full max-w-md items-stretch rounded-md border border-solid border-gray-200 bg-white/50 p-1 backdrop-blur-sm">
-        <UButton type="submit" class="flex shrink-0 items-center gap-2">
+        <UButton size="lg" type="submit" class="flex shrink-0 items-center gap-2">
           <ArrowLeftIcon v-if="locale === 'en'" class="h-4 w-4" />
           <ArrowRightIcon v-if="locale !== 'en'" class="h-4 w-4" />
           <p>{{ $t("collabration") }}</p>
@@ -61,11 +61,11 @@ const { data } = useData<IMainResult>("/content/wellcome", {
       </form>
     </div>
   </div>
-  <div class="container-app container-padding">
+  <div class="container-app px-12">
     <img
       :width="585"
       :height="238"
-      class="mx-auto block w-full max-w-7xl rounded-t-3xl shadow"
+      class="mx-auto block w-full max-w-6xl rounded-t-3xl shadow"
       src="~/assets/images/banner_img.png"
       alt="banner" />
   </div>
@@ -112,7 +112,7 @@ const { data } = useData<IMainResult>("/content/wellcome", {
           <p class="leading-[1.75rem]">{{ data?.services.text }}</p>
 
           <UButton
-            size="lg"
+            size="xl"
             type="submit"
             class="flex shrink-0 items-center gap-2">
             <p>{{ $t("collabration") }}</p>
@@ -147,6 +147,6 @@ const { data } = useData<IMainResult>("/content/wellcome", {
 
 <style>
 .color-text code {
-  @apply text-primary-400;
+  color: var(--color-primary-400);
 }
 </style>

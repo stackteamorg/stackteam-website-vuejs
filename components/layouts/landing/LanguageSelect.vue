@@ -23,7 +23,7 @@ const changeLang = (lang: string) => {
     class="group relative"
     @mouseenter="show = true"
     @mouseleave="show = false">
-    <UButton size="sm" @click="show = true">
+    <UButton size="sm" variant="outline" @click="show = true">
       <div class="flex items-center gap-1">
         <ChevronDownIcon class="h-4 w-4" />
         <span class="text-sm">{{ languages.get($i18n.locale) }}</span>

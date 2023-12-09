@@ -26,3 +26,12 @@ interface IMainResult {
     title: string;
   };
 }
+
+interface ICategory {
+  id: number;
+  name: string;
+  text: string;
+  lang: string;
+  created_at: string;
+  updated_at: string;
+}
