@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useQuery } from "@tanstack/vue-query";
+import { getCategories, keys } from "~/api";
 
 definePageMeta({
   layout: "landing-full",
@@ -10,24 +11,17 @@ const route = useRoute();
 const router = useRouter();
 const page = ref(1);
 
-// const { suspense } = useQuery({ queryFn: () => $fetch("") });
-
-// onServerPrefetch(async () => await suspense());
-
-const { data: articles, pending: articlePending } = useData("/article", {
-  key: "articles",
-  params: { page: page.value, lang: locale.value },
+const {
+  data: categories,
+  isLoading: categoryPending,
+  suspense,
+} = useQuery({
+  queryFn: () => getCategories(locale.value),
+  queryKey: [keys.CATEGORIES, locale],
 });
 
 const categoryHandler = (category: string) => () =>
   router.push({ path: route.path, query: { category } });
-
-const { data: categories, pending: categoryPending } = useData<ICategory[]>(
-  "/category",
-  {
-    key: keys.CATEGORIES,
-  },
-);
 
 const categoryOptions = computed(() => {
   if (categoryPending.value) return [];
@@ -38,6 +32,10 @@ const categoryOptions = computed(() => {
       click: categoryHandler(item.name),
     })),
   ];
+});
+
+onServerPrefetch(async () => {
+  await suspense();
 });
 </script>
 

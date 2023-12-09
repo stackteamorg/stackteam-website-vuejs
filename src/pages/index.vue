@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { keys } from "~/api";
+import { useQuery } from "@tanstack/vue-query";
+
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/vue/24/solid";
 
 import MobileLogo from "~/assets/icons/mobile.svg";
@@ -6,8 +9,16 @@ import WebLogo from "~/assets/icons/web.svg";
 import DesktopLogo from "~/assets/icons/desktop.svg";
 import BlockchainLogo from "~/assets/icons/blockchain.svg";
 import TechLogo from "~/assets/icons/technology.svg";
+import { getWellcome } from "~/api";
 
 const { locale } = useI18n();
+
+const { data, suspense } = useQuery({
+  queryFn: () => getWellcome(locale.value),
+  queryKey: [keys.MAIN_PARAMS, locale],
+});
+
+onServerPrefetch(async () => await suspense());
 
 definePageMeta({
   layout: "landing",
@@ -20,12 +31,6 @@ const icons = new Map([
   ["blockchain-development", BlockchainLogo],
   ["counseling", TechLogo],
 ]);
-
-const { data } = useData<IMainResult>("/content/wellcome", {
-  key: keys.MAIN_PARAMS,
-  method: "POST",
-  params: { lang: locale },
-});
 </script>
 
 <template>
@@ -48,7 +53,10 @@ const { data } = useData<IMainResult>("/content/wellcome", {
       <form
         autocomplete="off"
         class="mx-auto flex w-full max-w-md items-stretch rounded-md border border-solid border-gray-200 bg-white/50 p-1 backdrop-blur-sm">
-        <UButton size="lg" type="submit" class="flex shrink-0 items-center gap-2">
+        <UButton
+          size="lg"
+          type="submit"
+          class="flex shrink-0 items-center gap-2">
           <ArrowLeftIcon v-if="locale === 'en'" class="h-4 w-4" />
           <ArrowRightIcon v-if="locale !== 'en'" class="h-4 w-4" />
           <p>{{ $t("collabration") }}</p>

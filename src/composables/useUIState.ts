@@ -1,6 +1,8 @@
 import { useState } from "nuxt/app";
 
-export const useUIState = () =>
+const useUIState = () =>
   useState("ui", () => ({
     isMenuOpen: false,
   }));
+
+export default useUIState;

@@ -1,14 +1,19 @@
 <script setup lang="ts">
+import { getWellcome, keys } from "~/api";
 import { Bars3Icon } from "@heroicons/vue/24/solid";
+import { useQuery } from "@tanstack/vue-query";
 
 const ui = useUIState();
 const { locale } = useI18n();
 const localePath = useLocalePath();
 
-const { data } = useData<IMainResult>("/content/wellcome", {
-  key: keys.MAIN_PARAMS,
-  method: "POST",
-  params: { lang: locale.value },
+const { data, suspense } = useQuery({
+  queryFn: () => getWellcome(locale.value),
+  queryKey: [keys.MAIN_PARAMS, locale],
+});
+
+onServerPrefetch(async () => {
+  await suspense();
 });
 
 const collapseBanner = ref(process.server ? false : window.scrollY > 20);
