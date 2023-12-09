@@ -8,6 +8,7 @@ export const keys = {
 const useData: typeof useFetch = (url, opts) => {
   return useFetch(url, {
     baseURL: "http://console.stackteam.org/api",
+    cache: 'reload',
     ...opts,
   });
 };

@@ -8,6 +8,7 @@ export default defineAppConfig({
           "text-white bg-secondary hover:bg-secondary-900 active:bg-secondary",
         outline: "ring-secondary-950 text-secondary hover:bg-secondary-100",
         soft: "bg-secondary-50 hover:bg-secondary-100 text-secondary-600 disabled:bg-secondary-50",
+        pagination: "bg-gradient-to-br from-dreamy-green-200 to-dreamy-green-300 text-black"
       },
     },
     dropdown: {
@@ -17,6 +18,9 @@ export default defineAppConfig({
       variant: {
         soft: "bg-secondary-50 focus:ring-secondary-800",
       },
+    },
+    pagination: {
+      default: { size: "lg" },
     },
   },
 });

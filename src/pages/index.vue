@@ -24,7 +24,7 @@ const icons = new Map([
 const { data } = useData<IMainResult>("/content/wellcome", {
   key: keys.MAIN_PARAMS,
   method: "POST",
-  params: { lang: locale.value },
+  params: { lang: locale },
 });
 </script>
 
