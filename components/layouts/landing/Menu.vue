@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { XMarkIcon } from "@heroicons/vue/24/solid";
 
-const ui = useUI();
+const ui = useUIState();
 const localePath = useLocalePath();
 
 watch(

@@ -36,7 +36,7 @@ const { data } = useData<IMainResult>("/content/wellcome", {
       src="~/assets/images/header-bg.png"
       alt="header-bg" />
     <div class="mx-auto max-w-md space-y-6 lg:max-w-2xl">
-      <p class="text-center text-sm font-bold text-primary">
+      <p class="text-primary-400 text-center text-sm font-bold">
         {{ data?.hero.title }}
       </p>
       <h2 class="text-center text-6xl font-bold lg:text-8xl">
@@ -48,14 +48,11 @@ const { data } = useData<IMainResult>("/content/wellcome", {
       <form
         autocomplete="off"
         class="mx-auto flex w-full max-w-md items-stretch rounded-md border border-solid border-gray-200 bg-white/50 p-1 backdrop-blur-sm">
-        <Button
-          type="submit"
-          class="flex shrink-0 items-center gap-2"
-          severity="primary">
+        <UButton type="submit" class="flex shrink-0 items-center gap-2">
           <ArrowLeftIcon v-if="locale === 'en'" class="h-4 w-4" />
           <ArrowRightIcon v-if="locale !== 'en'" class="h-4 w-4" />
           <p>{{ $t("collabration") }}</p>
-        </Button>
+        </UButton>
         <input
           type="text"
           class="min-w-0 grow bg-transparent px-4"
@@ -68,8 +65,8 @@ const { data } = useData<IMainResult>("/content/wellcome", {
     <img
       :width="585"
       :height="238"
-      class="mx-auto block w-full max-w-7xl"
-      src="~/assets/images/banner_img.jpg"
+      class="mx-auto block w-full max-w-7xl rounded-t-3xl shadow"
+      src="~/assets/images/banner_img.png"
       alt="banner" />
   </div>
   <div
@@ -79,7 +76,7 @@ const { data } = useData<IMainResult>("/content/wellcome", {
     </p>
 
     <div class="container-padding mx-2 rounded-t-3xl bg-secondary py-12">
-      <p class="mb-4 text-center text-sm text-primary">
+      <p class="text-primary-400 mb-4 text-center text-sm">
         {{ data?.services["small-title"] }}
       </p>
       <p class="mx-auto mb-14 max-w-3xl text-center text-4xl text-white">
@@ -88,12 +85,12 @@ const { data } = useData<IMainResult>("/content/wellcome", {
 
       <div class="mx-auto grid max-w-6xl grid-cols-1 gap-5 xl:grid-cols-4">
         <div
-          class="col-span-1 row-span-1 grid grid-cols-1 sm:grid-cols-2 place-content-start gap-5 lg:grid-cols-3 xl:col-span-3 xl:row-span-2">
+          class="col-span-1 row-span-1 grid grid-cols-1 place-content-start gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:col-span-3 xl:row-span-2">
           <div
             v-for="item in data?.services.items"
             :key="item.id"
-            class="lg:aspect-square w-full rounded-xl border border-solid border-white bg-white px-5 py-8 transition-colors duration-300 hover:border-primary hover:bg-transparent hover:text-white">
-            <div class="mb-3 h-14 w-14 rounded bg-primary p-3">
+            class="hover:border-primary-400 w-full rounded-xl border border-solid border-white bg-white px-5 py-8 transition-colors duration-300 hover:bg-transparent hover:text-white lg:aspect-[1]">
+            <div class="bg-primary-400 mb-3 h-14 w-14 rounded p-3">
               <img
                 class="h-full w-full object-contain"
                 :src="icons.get(item.name)"
@@ -104,7 +101,7 @@ const { data } = useData<IMainResult>("/content/wellcome", {
           </div>
         </div>
         <div
-          class="relative row-span-1 space-y-3 rounded-xl bg-primary p-6 text-white xl:row-span-2">
+          class="bg-primary-400 relative row-span-1 space-y-3 rounded-xl p-6 text-white xl:row-span-2">
           <img
             class="h-20 w-20 object-contain brightness-[3] grayscale"
             src="~/assets/images/icon.png"
@@ -114,14 +111,14 @@ const { data } = useData<IMainResult>("/content/wellcome", {
           </p>
           <p class="leading-[1.75rem]">{{ data?.services.text }}</p>
 
-          <Button
+          <UButton
+            size="lg"
             type="submit"
-            class="flex shrink-0 items-center gap-2"
-            severity="primary">
+            class="flex shrink-0 items-center gap-2">
             <p>{{ $t("collabration") }}</p>
             <ArrowLeftIcon v-if="locale !== 'en'" class="h-4 w-4" />
             <ArrowRightIcon v-if="locale === 'en'" class="h-4 w-4" />
-          </Button>
+          </UButton>
 
           <img
             class="absolute bottom-2 h-16 w-16 ltr:right-2 rtl:left-2 rtl:-scale-x-100"
@@ -150,6 +147,6 @@ const { data } = useData<IMainResult>("/content/wellcome", {
 
 <style>
 .color-text code {
-  @apply text-primary;
+  @apply text-primary-400;
 }
 </style>

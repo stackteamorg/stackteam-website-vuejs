@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Bars3Icon } from "@heroicons/vue/24/solid";
 
-const ui = useUI();
+const ui = useUIState();
 const { locale } = useI18n();
 const localePath = useLocalePath();
 
@@ -68,16 +68,14 @@ onUnmounted(() => {
       </div>
 
       <div class="hidden h-full items-center gap-1 lg:flex">
-        <Button
+        <UButton
           class="block"
-          size="small"
-          :label="$t('layouts.landing.header.collabration')"
-          severity="outlined" />
-        <Button
+          size="sm"
+          :label="$t('layouts.landing.header.collabration')" />
+        <UButton
           class="block"
-          size="small"
-          :label="$t('layouts.landing.header.login')"
-          severity="primary" />
+          size="sm"
+          :label="$t('layouts.landing.header.login')" />
       </div>
 
       <button @click="ui.isMenuOpen = true" class="block lg:hidden">

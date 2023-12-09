@@ -11,8 +11,10 @@ const languages = new Map([
 ]);
 
 const changeLang = (lang: string) => {
-  navigateTo(switchLocalePath(lang));
-  show.value = false;
+  const navigation = navigateTo(switchLocalePath(lang));
+
+  if (typeof navigation === "object" && "then" in navigation)
+    navigation.then(() => (show.value = false));
 };
 </script>
 
@@ -21,12 +23,12 @@ const changeLang = (lang: string) => {
     class="group relative"
     @mouseenter="show = true"
     @mouseleave="show = false">
-    <Button size="small" @click="show = true" severity="outlined">
+    <UButton size="sm" @click="show = true">
       <div class="flex items-center gap-1">
         <ChevronDownIcon class="h-4 w-4" />
         <span class="text-sm">{{ languages.get($i18n.locale) }}</span>
       </div>
-    </Button>
+    </UButton>
     <div
       v-show="show"
       class="absolute top-full min-w-full overflow-hidden rounded-md bg-white text-center text-sm shadow ltr:left-0 rtl:right-0">
