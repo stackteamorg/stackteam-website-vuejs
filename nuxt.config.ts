@@ -2,6 +2,9 @@
 export default defineNuxtConfig({
   modules: ["@nuxt/ui", "@nuxtjs/i18n"],
   srcDir: "src",
+  routeRules: {
+    // "/**": { swr: 5 * 60 * 1000 },
+  },
   colorMode: {
     preference: "light",
   },

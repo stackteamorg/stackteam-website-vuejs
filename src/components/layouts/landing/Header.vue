@@ -12,9 +12,7 @@ const { data, suspense } = useQuery({
   queryKey: [keys.MAIN_PARAMS, locale],
 });
 
-onServerPrefetch(async () => {
-  await suspense();
-});
+onServerPrefetch(async () => await suspense());
 
 const collapseBanner = ref(process.server ? false : window.scrollY > 20);
 

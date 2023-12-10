@@ -1,4 +1,6 @@
 {
+  "min": "Min",
+  "category": "Category",
   "welcome": "Welcome",
   "collabration": "Collabrate",
   "layouts": {

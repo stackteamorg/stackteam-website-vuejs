@@ -1,5 +1,5 @@
 const api = $fetch.create({
-  baseURL: "http://console.stackteam.org/api",
+  baseURL: "https://console.stackteam.org/api",
 });
 
 export * from "./keys";
