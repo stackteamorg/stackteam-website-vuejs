@@ -28,7 +28,11 @@ const {
   queryKey: [keys.CATEGORIES, locale],
 });
 
-const { data: articles, suspense: suspenseArticles } = useQuery({
+const {
+  data: articles,
+  suspense: suspenseArticles,
+  isLoading: articlesLoading,
+} = useQuery({
   queryFn: () =>
     getArticles({
       lang: locale.value,
@@ -171,6 +175,9 @@ onServerPrefetch(async () => {
     </div>
 
     <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <template v-if="articlesLoading">
+        <SkeletonsArticle v-for="i in 9" :key="i" />
+      </template>
       <NuxtLink
         v-for="article in articles?.data"
         :key="article.id"

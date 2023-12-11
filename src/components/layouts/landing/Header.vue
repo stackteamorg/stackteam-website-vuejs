@@ -14,7 +14,7 @@ const { data, suspense } = useQuery({
 
 onServerPrefetch(async () => await suspense());
 
-const collapseBanner = ref(process.server ? false : window.scrollY > 20);
+const collapseBanner = ref(false);
 
 const scrollHandler = () => {
   if (window.scrollY > 50 && !collapseBanner.value) {

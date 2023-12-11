@@ -78,12 +78,13 @@ const icons = new Map([
       alt="banner" />
   </div>
   <div
-    class="container-app container-padding rounded-t-3xl bg-gradient-to-br from-dreamy-green-200 to-dreamy-green-300 pt-12">
+    class="container-app container-padding rounded-b rounded-t-3xl bg-gradient-to-br from-dreamy-green-200 to-dreamy-green-300 pt-12">
     <p class="mb-12 text-center font-bold">
       Trusted <span class="text-primary">120 companies</span> across the world
     </p>
 
-    <div class="container-padding mx-2 rounded-t-3xl bg-secondary py-12">
+    <div
+      class="container-padding mx-2 rounded-b rounded-t-3xl bg-secondary py-12">
       <p class="text-primary-400 mb-4 text-center text-sm">
         {{ data?.services["small-title"] }}
       </p>
