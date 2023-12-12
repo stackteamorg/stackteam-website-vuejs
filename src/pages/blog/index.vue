@@ -11,6 +11,7 @@ definePageMeta({
 const route = useRoute();
 const router = useRouter();
 const { locale } = useI18n();
+const localePath = useLocalePath(); 
 
 const mainContainer = ref<HTMLDivElement>();
 
@@ -182,7 +183,7 @@ onServerPrefetch(async () => {
         v-for="article in articles?.data"
         :key="article.id"
         class="block w-full"
-        :to="`/blog/${article.id}`">
+        :to="localePath(`/blog/${article.id}`)">
         <div>
           <img
             :width="600"
