@@ -1,10 +1,11 @@
 import api from ".";
 
-import type {
-  IWellcomeResult,
-  ICategoryResult,
-  IArticlesResult,
-  IArticleParams,
+import {
+  type IWellcomeResult,
+  type ICategoryResult,
+  type IArticlesResult,
+  type IArticleParams,
+  type IArticle,
 } from "./types";
 
 export function getWellcome(lang: string) {
@@ -28,4 +29,8 @@ export function getArticles(params: IArticleParams) {
       popular: params.popular,
     },
   });
+}
+
+export function getArticle(id: number) {
+  return api<IArticle>(`/article/${id}`);
 }
