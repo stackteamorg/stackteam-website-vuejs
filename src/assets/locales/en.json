@@ -2,6 +2,7 @@
   "min": "Min",
   "category": "Category",
   "welcome": "Welcome",
+  "tags": "Tags",
   "collabration": "Collabrate",
   "layouts": {
     "landing": {
