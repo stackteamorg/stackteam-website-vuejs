@@ -73,7 +73,7 @@ const icons = new Map([
     <img
       :width="585"
       :height="238"
-      class="mx-auto block w-full max-w-6xl rounded-t-3xl shadow"
+      class="mx-auto block w-full max-w-6xl rounded-t-xl lg:rounded-t-3xl shadow"
       src="~/assets/images/banner_img.png"
       alt="banner" />
   </div>
