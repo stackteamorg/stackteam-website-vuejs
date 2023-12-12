@@ -6,6 +6,8 @@ import { useQuery } from "@tanstack/vue-query";
 const ui = useUIState();
 const { locale } = useI18n();
 const localePath = useLocalePath();
+const loginHandler = () =>
+  open("https://console.stackteam.org/login", "_blank");
 
 const { data, suspense } = useQuery({
   queryFn: () => getWellcome(locale.value),
@@ -78,6 +80,7 @@ onUnmounted(() => {
           size="sm"
           :label="$t('layouts.landing.header.collabration')" />
         <UButton
+          @click="loginHandler"
           class="block"
           size="sm"
           :label="$t('layouts.landing.header.login')" />
