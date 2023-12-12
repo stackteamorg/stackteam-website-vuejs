@@ -11,7 +11,7 @@ export default <Partial<Config>>{
     extend: {
       backgroundImage: {
         "green-gradient":
-          "linear-gradient(102deg, #dbf1c3 -7.72%, #dce7e3 86.48%))",
+          "linear-gradient(102deg, #dbf1c3 -7.72%, #dce7e3 86.48%)",
       },
       colors: {
         salmon: {
