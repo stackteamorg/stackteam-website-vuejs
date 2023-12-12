@@ -3,11 +3,13 @@ import { XMarkIcon } from "@heroicons/vue/24/solid";
 
 const ui = useUIState();
 const localePath = useLocalePath();
+const loginHandler = () =>
+  open("https://console.stackteam.org/login", "_blank");
 
 watch(
   [() => ui.value.isMenuOpen],
   () => {
-    if (process.server) return;
+    if (!process.client) return;
 
     if (ui.value.isMenuOpen) document.documentElement.style.overflow = "hidden";
     else document.documentElement.style.overflow = "";
@@ -25,9 +27,23 @@ watch(
     <div
       v-if="ui.isMenuOpen"
       class="fixed inset-0 z-30 flex flex-col items-center justify-center gap-3 bg-white/80 text-center backdrop-blur lg:hidden">
-      <button @click="ui.isMenuOpen = false" class="absolute left-6 top-6">
-        <XMarkIcon class="h-8 w-8" />
-      </button>
+      <div
+        class="absolute left-6 right-6 top-6 flex flex-row-reverse items-center justify-between">
+        <button @click="ui.isMenuOpen = false">
+          <XMarkIcon class="h-8 w-8" />
+        </button>
+        <div class="flex h-full items-center gap-1">
+          <UButton
+            class="block"
+            size="sm"
+            :label="$t('layouts.landing.header.collabration')" />
+          <UButton
+            @click="loginHandler"
+            class="block"
+            size="sm"
+            :label="$t('layouts.landing.header.login')" />
+        </div>
+      </div>
       <NuxtLink
         active-class="text-primary"
         @click="ui.isMenuOpen = false"
