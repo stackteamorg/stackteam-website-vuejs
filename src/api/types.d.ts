@@ -53,6 +53,39 @@ export interface ICategoryResult {
   updated_at: string;
 }
 
+interface ITag {
+  id: number;
+  name: string;
+  text: string;
+  category_id: number;
+  visit: number;
+  lang: string;
+  created_at: null | string;
+  updated_at: string | null;
+  pivot: {
+    article_id: number;
+    tag_id: number;
+  };
+}
+
+interface IArticle {
+  id: number;
+  name: string;
+  author_id: number;
+  title: string;
+  subtext: string;
+  text: string;
+  category_id: number;
+  visit: number;
+  read_time: number;
+  like: number;
+  lang: string;
+  published: number;
+  created_at: null | string;
+  updated_at: null | string;
+  image_url: string;
+}
+
 interface IArticleShort {
   id: number;
   name: string;
@@ -70,7 +103,7 @@ interface IArticleShort {
   updated_at?: string;
   author: Author;
   category: ICategoryResult;
-  tags: string[];
+  tags: ITag[];
 }
 
 interface Author {
