@@ -1,8 +1,10 @@
 {
   "min": "دقیقه",
+  "search": "جست و جو",
   "category": "دسته بندی",
   "welcome": "خوش آمدید",
   "tags": "تگ ها",
+  "delete-filters": "حذف فیلتر ها",
   "collabration": "همکاری با ما",
   "layouts": {
     "landing": {

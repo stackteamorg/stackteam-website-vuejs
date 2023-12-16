@@ -126,6 +126,7 @@ export interface IArticleParams {
   lang: string;
   page: number;
   count?: number;
-  category?: string;
+  category?: number;
   popular?: boolean;
+  tag?: number
 }

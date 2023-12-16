@@ -27,6 +27,7 @@ export function getArticles(params: IArticleParams) {
       category: params.category,
       count: params.count,
       popular: params.popular,
+      tag: params.tag,
     },
   });
 }

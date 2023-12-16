@@ -25,29 +25,32 @@ const { data: article, isSuccess: articleSuccess } = useQuery({
       class="container-app container-padding grid grid-cols-1 gap-6 lg:grid-cols-2">
       <div class="order-2 flex flex-col gap-5 lg:order-1">
         <p class="text-primary text-sm">وبلاگ استگ تیم</p>
-        <p class="text-5xl font-bold">این یک متن برای عنوان پست می‌باشد</p>
+        <p class="text-5xl font-bold">
+          {{ article?.title }}
+        </p>
         <div class="flex items-center gap-5">
-          <div class="flex items-center gap-2">
-            <img
-              src="https://picsum.photos/300/300"
-              class="h-10 w-10 rounded-xl" />
-            <div class="space-y-1">
-              <p class="text-xs text-gray-600">نویسنده</p>
-              <p class="text-sm">سامان صفائی</p>
-            </div>
+          <div class="space-y-1">
+            <p class="text-xs text-gray-600">نویسنده</p>
+            <p class="text-sm">سامان صفائی</p>
           </div>
           <div class="space-y-1">
             <p class="text-xs text-gray-600">تاریخ</p>
-            <p class="text-sm">15 ژٓوئن</p>
+            <p class="text-sm">
+              {{
+                toArticleDate(
+                  locale,
+                  article?.updated_at || article?.created_at || undefined,
+                )
+              }}
+            </p>
           </div>
           <div class="space-y-1">
             <p class="text-xs text-gray-600">زمان مطالعه</p>
-            <p class="text-sm">5 دقیقه</p>
+            <p class="text-sm">{{ article?.read_time }} دقیقه</p>
           </div>
         </div>
         <p class="leading-8">
-          این متن یک متن کوتاه برای تست زیرعنوان است. درست است که متن باید کوتاه
-          باشد ولی باید در حد 3 خط یا بیشتر باشد
+          {{ article?.subtext }}
         </p>
 
         <UButton size="md" class="mt-auto flex w-fit" label="اشتراک گذاری" />
@@ -61,24 +64,7 @@ const { data: article, isSuccess: articleSuccess } = useQuery({
     class="container-app container-padding grid grid-cols-1 gap-6 py-12 leading-8 lg:grid-cols-3">
     <div class="lg:col-span-2">
       <p class="text-justify">
-        Laboratories used for scientific research take many forms because of the
-        differing requirements of specialists in the various fields of science
-        and engineering. A physics laboratory Sed ut perspiciatis unde omnis
-        iste natus error sit voluptatem accusantium doloremque laudantium,
-        aperiam ipsquae ab illo inventore veritatis et quasi architecto beatae
-        vitae dicta sunt explicabo. Nemo enim voluptatem voluptas sit aspernatur
-        aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-        voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum
-        quia dolor sit Sed ut perspiciatis unde omnis iste natus error sit
-        voluptatem accusantium doloremque laudantium, aperiam ipsquae ab illo
-        inventore veritatis et quasi architecto beatae vitae dicta sunt
-        explicabo What Is A Business Technology Roadmap? Unlike detailed
-        blueprints that lay out all tasks, deadlines, bug reports, and more
-        along the way, technology roadmaps are high-level visual summaries
-        highlighting a company’s vision or plans. In an Agile approach, a
-        technology roadmap feeds the sprint and grooming processes, providing
-        insight into how the product will travel from start to finish. It makes
-        it easier for development teams to:
+        {{ article?.text }}
       </p>
 
       <section aria-label="Tags" class="mt-8">

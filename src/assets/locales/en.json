@@ -1,8 +1,10 @@
 {
   "min": "Min",
+  "search": "Search",
   "category": "Category",
   "welcome": "Welcome",
   "tags": "Tags",
+  "delete-filters": "Clear Filters",
   "collabration": "Collabrate",
   "layouts": {
     "landing": {
