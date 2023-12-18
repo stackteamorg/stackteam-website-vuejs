@@ -1,8 +1,9 @@
 export default defineAppConfig({
   ui: {
     primary: "salmon",
+    strategy: "merge",
     button: {
-      base: "transition-colors duration-200",
+      base: "inline-flex items-center transition-colors duration-200",
       variant: {
         solid:
           "text-white bg-secondary hover:bg-secondary-900 active:bg-secondary",
@@ -11,8 +12,8 @@ export default defineAppConfig({
         soft: "bg-secondary-50 hover:bg-secondary-100 text-secondary-600 disabled:bg-secondary-50",
         pagination:
           "bg-gradient-to-br from-dreamy-green-200 to-dreamy-green-300 text-black",
-        whiteGhost:
-          "text-black bg-white/90 hover:bg-white active:bg-white/80",
+        whiteGhost: "text-black bg-white/90 hover:bg-white active:bg-white/80",
+        ghost: "text-gray-700",
       },
     },
     dropdown: {
@@ -25,6 +26,10 @@ export default defineAppConfig({
     },
     pagination: {
       default: { size: "lg" },
+    },
+    accordion: {
+      default: { class: "bg-transparent" },
+      wrapper: "bg-transparent",
     },
   },
 });

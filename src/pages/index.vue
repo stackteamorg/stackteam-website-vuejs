@@ -73,7 +73,7 @@ const icons = new Map([
     <img
       :width="585"
       :height="238"
-      class="mx-auto block w-full max-w-6xl rounded-t-xl lg:rounded-t-3xl shadow"
+      class="mx-auto block w-full max-w-6xl rounded-t-xl shadow lg:rounded-t-3xl"
       src="~/assets/images/banner_img.png"
       alt="banner" />
   </div>
@@ -134,6 +134,77 @@ const icons = new Map([
             src="~/assets/images/service_shape.png"
             alt="logo" />
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-app container-padding mt-6 py-8">
+    <h3 class="text-primary mb-2 text-center text-sm">WORKING PROCESS</h3>
+    <p class="mb-12 text-center text-4xl font-bold lg:text-6xl">
+      How Ai writer works
+    </p>
+    <div
+      class="mx-auto grid max-w-sm grid-cols-1 items-center gap-10 lg:max-w-5xl lg:grid-cols-2">
+      <div class="relative h-[360px]">
+        <img
+          class="absolute top-0 h-full w-[calc(100%-3rem)] object-cover ltr:left-0 rtl:right-0"
+          src="~/assets/images/green-line-bg.jpg"
+          alt="green lines" />
+        <img
+          class="absolute top-1/2 h-[75%] w-[calc(100%-3rem)] -translate-y-1/2 object-contain drop-shadow-lg ltr:right-0 ltr:object-right rtl:left-0 rtl:object-left"
+          src="~/assets/images/screenshot-of-workspace.png"
+          alt="screenshot of workspace" />
+      </div>
+      <div class="relative z-0 space-y-4">
+        <div
+          class="absolute bottom-4 rtl:right-[16px] ltr:left-[16px] top-10 -z-[1] w-[1px] rtl:translate-x-1/2 ltr:-translate-x-1/2 bg-secondary-950"></div>
+        <UAccordion
+          :items="[
+            {
+              label: 'Test Text',
+              content: 'this is content',
+              slot: 'padded',
+              defaultOpen: true,
+            },
+            {
+              label: 'Test Text 2',
+              content: 'this is content 2',
+              slot: 'padded',
+            },
+          ]">
+          <template #default="{ item, index, open }">
+            <UButton
+              size="sm"
+              variant="ghost"
+              class="gap-3 hover:bg-transparent px-0 font-bold text-xl">
+              <template #leading>
+                <div
+                  class="flex h-9 w-8 items-center justify-center rounded-lg"
+                  :class="open ? 'bg-primary-400' : 'bg-secondary-950'">
+                  <p class="text-white text-xs font-normal">{{ index + 1 }}</p>
+                </div>
+              </template>
+
+              <span class="truncate">{{ item.label }}</span>
+
+              <template #trailing>
+                <UIcon
+                  name="i-heroicons-chevron-right-20-solid"
+                  class="ms-auto h-5 w-5 transform transition-transform duration-200 rtl:-scale-x-100"
+                  :class="[open && 'ltr:rotate-90 rtl:-rotate-90']" />
+              </template>
+            </UButton>
+          </template>
+          <template #padded="{ item }">
+            <p class="rtl:pr-11 ltr:pl-11">
+              {{ item.content }}
+            </p>
+          </template>
+        </UAccordion>
+        <UButton size="lg" label="Start">
+          <template #trailing>
+            <UIcon class="w-5 h-5" name="i-heroicons-play-circle" />
+          </template>
+        </UButton>
       </div>
     </div>
   </div>

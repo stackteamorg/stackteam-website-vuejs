@@ -17,6 +17,11 @@
       font-display: swap;
     }
 
+    html,
+    body {
+      @apply overflow-x-hidden;
+    }
+
     html {
       @apply text-typo-dark;
     }
@@ -29,9 +34,8 @@
       font-family: shabnam, sans-serif;
     }
 
-    *:focus,
     *:focus-visible {
-      @apply outline-none;
+      @apply !outline-secondary-400 !ring-secondary-400;
     }
   }
 }
@@ -42,7 +46,7 @@
 
   @layer utilities {
     .container-app {
-      @apply max-w-screen-2xl mx-auto;
+      @apply mx-auto max-w-screen-2xl;
     }
     .container-padding {
       @apply px-6;

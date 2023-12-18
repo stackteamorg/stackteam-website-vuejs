@@ -1,5 +1,5 @@
 const api = $fetch.create({
-  baseURL: "https://console.stackteam.org/api",
+  baseURL: import.meta.env.VITE_API,
 });
 
 export * from "./keys";

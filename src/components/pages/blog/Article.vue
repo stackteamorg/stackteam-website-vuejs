@@ -2,7 +2,7 @@
 const { locale } = useI18n();
 const localePath = useLocalePath();
 
-defineProps<{
+const props = defineProps<{
   itemId: number;
   imageUrl: string;
   titleText: string;
@@ -16,6 +16,10 @@ defineProps<{
     text: string;
   }[];
 }>();
+
+const url = computed(
+  () => new URL(props.imageUrl, import.meta.env.VITE_API_ORIGIN),
+);
 </script>
 
 <template>
@@ -24,7 +28,7 @@ defineProps<{
       <img
         :width="600"
         :height="400"
-        :src="imageUrl"
+        :src="url.href"
         :alt="titleText"
         class="mb-4 aspect-[16/9] w-full rounded-lg object-cover" />
       <p dir="ltr" class="mb-2 text-sm rtl:text-right">
