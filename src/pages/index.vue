@@ -156,17 +156,17 @@ const icons = new Map([
       </div>
       <div class="relative z-0 space-y-4">
         <div
-          class="absolute bottom-4 rtl:right-[16px] ltr:left-[16px] top-10 -z-[1] w-[1px] rtl:translate-x-1/2 ltr:-translate-x-1/2 bg-secondary-950"></div>
+          class="absolute bottom-4 top-10 -z-[1] w-[1px] bg-secondary-950 ltr:left-[16px] ltr:-translate-x-1/2 rtl:right-[16px] rtl:translate-x-1/2"></div>
         <UAccordion
           :items="[
             {
-              label: 'Test Text',
+              label: 'start',
               content: 'this is content',
               slot: 'padded',
               defaultOpen: true,
             },
             {
-              label: 'Test Text 2',
+              label: 'mid',
               content: 'this is content 2',
               slot: 'padded',
             },
@@ -175,16 +175,18 @@ const icons = new Map([
             <UButton
               size="sm"
               variant="ghost"
-              class="gap-3 hover:bg-transparent px-0 font-bold text-xl">
+              class="gap-3 px-0 text-xl font-bold hover:bg-transparent">
               <template #leading>
                 <div
                   class="flex h-9 w-8 items-center justify-center rounded-lg"
                   :class="open ? 'bg-primary-400' : 'bg-secondary-950'">
-                  <p class="text-white text-xs font-normal">{{ index + 1 }}</p>
+                  <p class="text-xs font-normal text-white">{{ index + 1 }}</p>
                 </div>
               </template>
 
-              <span class="truncate">{{ item.label }}</span>
+              <span class="truncate">{{
+                $t(`home.process.${item.label}`)
+              }}</span>
 
               <template #trailing>
                 <UIcon
@@ -195,14 +197,14 @@ const icons = new Map([
             </UButton>
           </template>
           <template #padded="{ item }">
-            <p class="rtl:pr-11 ltr:pl-11">
+            <p class="ltr:pl-11 rtl:pr-11">
               {{ item.content }}
             </p>
           </template>
         </UAccordion>
-        <UButton size="lg" label="Start">
+        <UButton size="lg" :label="$t('home.process.btn')">
           <template #trailing>
-            <UIcon class="w-5 h-5" name="i-heroicons-play-circle" />
+            <UIcon class="h-5 w-5" name="i-heroicons-play-circle" />
           </template>
         </UButton>
       </div>

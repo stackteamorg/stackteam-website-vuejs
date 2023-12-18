@@ -6,6 +6,14 @@
   "tags": "Tags",
   "delete-filters": "Clear Filters",
   "collabration": "Collabrate",
+  "home": {
+    "process": {
+      "start": "Start collabrate with us",
+      "mid": "Process step 2",
+      "end": "",
+      "btn": "Start Collabrate"
+    }
+  },
   "layouts": {
     "landing": {
       "header": {

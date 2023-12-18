@@ -6,6 +6,14 @@
   "tags": "التگ ها",
   "delete-filters": "الحذف فیلتر ها",
   "collabration": "الهمکاری با ما",
+  "home": {
+    "process": {
+      "start": "شروع همکاری با ما",
+      "mid": "فرآیند 2",
+      "end": "",
+      "btn": "شروع همکاری"
+    }
+  },
   "layouts": {
     "landing": {
       "header": {
