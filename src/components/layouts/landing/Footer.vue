@@ -1,6 +1,10 @@
 <script setup lang="ts">
 // TODO - Translate
-import { ArrowLeftIcon, ArrowRightIcon, CheckIcon } from "@heroicons/vue/24/solid";
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  CheckIcon,
+} from "@heroicons/vue/24/solid";
 
 const localePath = useLocalePath();
 const floatElementHeight = ref(0);
@@ -25,8 +29,7 @@ onUnmounted(() => {
 <template>
   <div class="mt-8" :style="{ height: `${floatElementHeight / 2}px` }"></div>
 
-  <div
-    class="relative rounded-t-3xl bg-green-gradient pb-4 pt-16">
+  <div class="relative rounded-t-3xl bg-green-gradient pb-4 pt-16">
     <div
       ref="floatElement"
       class="absolute bottom-full left-1/2 w-full max-w-screen-2xl -translate-x-1/2 translate-y-1/2 px-6">
@@ -69,16 +72,17 @@ onUnmounted(() => {
     </div>
 
     <div :style="{ height: `${floatElementHeight / 2}px` }"></div>
-    <div class="container-app container-padding mb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+    <div
+      class="container-app container-padding mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
       <div>
         <img
           src="@/assets/images/icon.png"
-          class="mb-2 h-20 w-20 object-contain" />
+          class="mb-2 h-20 w-20 object-contain grayscale" />
         <h2 class="mb-2 text-xl font-bold">Stackteam</h2>
-        <p>استک تیم، شرکت توسعه گران فناوری نوپا سما</p>
+        <p>{{ $t("layouts.landing.footer.desc") }}</p>
       </div>
       <div>
-        <h3 class="mb-4 font-bold">فهرست</h3>
+        <h3 class="mb-4 font-bold">{{ $t("layouts.landing.footer.menu") }}</h3>
         <ul class="flex flex-col items-stretch gap-2.5">
           <li>
             <NuxtLink :to="localePath('/')">
@@ -108,7 +112,9 @@ onUnmounted(() => {
         </ul>
       </div>
       <div>
-        <h3 class="mb-4 font-bold">تماس با ما</h3>
+        <h3 class="mb-4 font-bold">
+          {{ $t("layouts.landing.footer.contact") }}
+        </h3>
         <ul class="flex flex-col items-stretch gap-2.5">
           <li>
             <NuxtLink> xsamansafaeix@gmail.com </NuxtLink>
@@ -119,24 +125,24 @@ onUnmounted(() => {
         </ul>
       </div>
       <div>
-        <h3 class="mb-4 font-bold">فرم همکاری با ما</h3>
+        <h3 class="mb-4 font-bold">{{ $t("layouts.landing.footer.form") }}</h3>
         <form
           autocomplete="off"
           class="mb-4 flex w-full items-stretch rounded-md border border-solid border-gray-200 bg-white/50 p-1 backdrop-blur-sm">
-          <UButton size="lg" type="submit">
-            <p>ارسال</p>
-          </UButton>
+          <UButton size="lg" type="submit" :label="$t('send')" />
           <input
             type="text"
             class="min-w-0 grow bg-transparent px-4"
             placeholder="+989196043787"
             dir="auto" />
         </form>
-        <p>برای مشاوره رایگان شماره تماس خود را وارد نمایید.</p>
+        <p>{{ $t("layouts.landing.footer.formSub") }}</p>
       </div>
     </div>
     <div class="container-app container-padding">
-      <p>© تمامی حقوق مربوط به استک تیم محفوظ می باشد.</p>
+      <p class="mt-14 text-center text-sm">
+        {{ $t("layouts.landing.footer.endingText") }}
+      </p>
     </div>
   </div>
 </template>
