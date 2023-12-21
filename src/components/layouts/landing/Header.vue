@@ -35,7 +35,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div
+  <nav
     class="fixed left-0 right-0 top-0 z-20"
     :class="{
       'bg-white/80 shadow-md shadow-gray-100 backdrop-blur': collapseBanner,
@@ -90,5 +90,5 @@ onUnmounted(() => {
         <Bars3Icon class="h-8 w-8" />
       </button>
     </div>
-  </div>
+  </nav>
 </template>
