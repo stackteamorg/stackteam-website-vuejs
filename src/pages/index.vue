@@ -1,15 +1,9 @@
 <script setup lang="ts">
 import { keys } from "~/api";
 import { useQuery } from "@tanstack/vue-query";
+import { getWellcome } from "~/api";
 
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/vue/24/solid";
-
-import MobileLogo from "~/assets/icons/mobile.svg";
-import WebLogo from "~/assets/icons/web.svg";
-import DesktopLogo from "~/assets/icons/desktop.svg";
-import BlockchainLogo from "~/assets/icons/blockchain.svg";
-import TechLogo from "~/assets/icons/technology.svg";
-import { getWellcome } from "~/api";
 
 const { locale } = useI18n();
 
@@ -23,14 +17,6 @@ onServerPrefetch(async () => await suspense());
 definePageMeta({
   layout: "landing",
 });
-
-const icons = new Map([
-  ["mobile-development", MobileLogo],
-  ["web-development", WebLogo],
-  ["desktop-app", DesktopLogo],
-  ["blockchain-development", BlockchainLogo],
-  ["counseling", TechLogo],
-]);
 </script>
 
 <template>
@@ -69,6 +55,7 @@ const icons = new Map([
       </form>
     </div>
   </div>
+
   <div class="container-app px-12">
     <img
       :width="585"
@@ -77,66 +64,9 @@ const icons = new Map([
       src="~/assets/images/banner_img.png"
       alt="banner" />
   </div>
-  <div
-    class="container-app container-padding rounded-b rounded-t-3xl bg-gradient-to-br from-dreamy-green-200 to-dreamy-green-300 pt-12">
-    <p class="mb-12 text-center font-bold">
-      Trusted <span class="text-primary">120 companies</span> across the world
-    </p>
+  
+  <PagesHomeServicesIntro :welcome-data="data" />
 
-    <div
-      class="container-padding mx-2 rounded-b rounded-t-3xl bg-secondary py-12">
-      <p class="text-primary-400 mb-4 text-center text-sm">
-        {{ data?.services["small-title"] }}
-      </p>
-      <p class="mx-auto mb-14 max-w-3xl text-center text-4xl text-white">
-        {{ data?.services.title }}
-      </p>
-
-      <div class="mx-auto grid max-w-6xl grid-cols-1 gap-5 xl:grid-cols-4">
-        <div
-          class="col-span-1 row-span-1 grid grid-cols-1 place-content-start gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:col-span-3 xl:row-span-2">
-          <div
-            v-for="item in data?.services.items"
-            :key="item.id"
-            class="hover:border-primary-400 w-full rounded-xl border border-solid border-white bg-white px-5 py-8 transition-colors duration-300 hover:bg-transparent hover:text-white lg:aspect-[1]">
-            <div class="bg-primary-400 mb-3 h-14 w-14 rounded p-3">
-              <img
-                class="h-full w-full object-contain"
-                :src="icons.get(item.name)"
-                alt="logo" />
-            </div>
-            <h3 class="mb-2 text-lg font-bold">{{ item.title }}</h3>
-            <p class="leading-6">{{ item.subtitle }}</p>
-          </div>
-        </div>
-        <div
-          class="bg-primary-400 relative row-span-1 space-y-3 rounded-xl p-6 text-white xl:row-span-2">
-          <img
-            class="h-20 w-20 object-contain brightness-[3] grayscale"
-            src="~/assets/images/icon.png"
-            alt="logo" />
-          <p class="text-xl font-bold leading-[1.75rem]">
-            {{ data?.services.title }}
-          </p>
-          <p class="leading-[1.75rem]">{{ data?.services.text }}</p>
-
-          <UButton
-            size="xl"
-            type="submit"
-            class="flex shrink-0 items-center gap-2">
-            <p>{{ $t("collabration") }}</p>
-            <ArrowLeftIcon v-if="locale !== 'en'" class="h-4 w-4" />
-            <ArrowRightIcon v-if="locale === 'en'" class="h-4 w-4" />
-          </UButton>
-
-          <img
-            class="absolute bottom-2 h-16 w-16 ltr:right-2 rtl:left-2 rtl:-scale-x-100"
-            src="~/assets/images/service_shape.png"
-            alt="logo" />
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="container-app container-padding mt-6 py-8">
     <h3 class="text-primary mb-2 text-center text-sm">WORKING PROCESS</h3>
     <p class="mb-12 text-center text-4xl font-bold lg:text-6xl">
