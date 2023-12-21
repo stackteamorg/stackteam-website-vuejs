@@ -6,6 +6,7 @@
   "tags": "Tags",
   "delete-filters": "Clear Filters",
   "collabration": "Collabrate",
+  "send": "Send",
   "home": {
     "process": {
       "start": "Start collabrate with us",
@@ -16,6 +17,14 @@
   },
   "layouts": {
     "landing": {
+      "footer": {
+        "form": "Collabrate Form",
+        "formSub": "Call for a free consultation",
+        "menu": "Menu",
+        "contact": "Contact Us",
+        "desc": "Stack Team, a start-up technology developer company",
+        "endingText": "© All rights related to Team Stack are reserved."
+      },
       "header": {
         "login": "Login",
         "collabration": "Collabration",
